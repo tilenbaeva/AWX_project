@@ -1,0 +1,6 @@
+---
+- name: ping Windows instances
+  hosts: all
+  tasks:
+    - name: ping win ec2
+      win_ping:
