@@ -8,7 +8,7 @@
         name: "{{ item }}"
         state: present
         generate_ssh_key: yes
-    - with_items:
-      - bob 
-      - sam 
+      with_items:
+        - bob 
+        - sam 
       
