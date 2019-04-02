@@ -5,7 +5,7 @@
   tasks:
     - name: Find files that are older than 90 days
       find: 
-        path: /tmp/*
+        path: /tmp/
         file_type: file
         age: 90d
         recurse: yes
