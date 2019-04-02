@@ -4,10 +4,11 @@
   become_method: sudo
   tasks:
     - name: Find files that are older than 90 days
-      path: /tmp/*
-      age: 90d
-      recursive: yes
-    register: found 
+      find: 
+        path: /tmp/*
+        age: 90d
+        recursive: yes
+      register: found 
     - name: Zip found files that are older than 90 days
       archive: 
         path: "{{found.files|map(attribute='path')|list}}"
