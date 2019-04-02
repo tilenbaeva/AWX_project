@@ -1,0 +1,8 @@
+---
+- name: delete previously created files
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: delete created files under /tmp
+      shell: rm -rf /tmp/file*
