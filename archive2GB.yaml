@@ -1,0 +1,17 @@
+---
+- name: create a compressed archive of files that are over 2GB
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: find files with size
+      find:
+        paths: /tmp
+        size: 2g
+        recurse: yes
+      register: found
+    - name: create a compressed archive of files found above
+      archive:
+        path: "{{found.files|map(attribute='path')|list}}"
+        format: gz
+        dest: "/tmp/file{{ansible_date_time.date}}.over2GB.tgz"
