@@ -6,7 +6,9 @@
     - name: Find files that are older than 90 days
       find: 
         path: /tmp/*
-        age: 90d
+        file_type: file
+        age: 90
+        age_stamp: dtime
         recursive: yes
       register: found 
     - name: Zip found files that are older than 90 days
