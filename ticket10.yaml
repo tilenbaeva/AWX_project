@@ -16,7 +16,7 @@
       apt:
         name: tree
         state: present
-      when: ansible_distribution == "Ubuntu" and ansible_distribution == "Debian"
+      when: ansible_facts == "Ubuntu" or ansible_distribution == "Debian"
     
 
       
