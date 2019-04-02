@@ -1,0 +1,10 @@
+---
+- name: populate the /tmp folder with files that meet the search criteria, so that we can test the playbooks
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: create a file that is larger than 2GB
+      shell: dd if=/dev/urandom of=/tmp/file.txt bs=2200000 count=1000
+    - name: create five files with a custom date
+      shell: touch -d 20180501  /tmp/file{1..5}
