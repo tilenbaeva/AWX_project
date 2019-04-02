@@ -7,12 +7,15 @@
       find: 
         path: /tmp/*
         file_type: file
-        age: 90
-        age_stamp: dtime
-        recursive: yes
+        age: 90d
+        recurse: yes
       register: found 
     - name: Zip found files that are older than 90 days
       archive: 
         path: "{{found.files|map(attribute='path')|list}}"
         format: zip
         dest: "/tmp/file{{ansible_date_time.date}}.over90days.zip"
+
+
+
+    
