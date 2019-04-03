@@ -1,0 +1,27 @@
+---
+- name: Install vim, tree, telnet on CentOS, Ubuntu, Debian
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks: 
+     - name: install packages on CentOS
+      yum:
+        name: 
+          - vim
+          - tree
+          - telnet
+        state: present
+      when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7
+       - name: install packages on Ubuntu nad Debian
+      apt:
+        name: 
+          - vim
+          - tree
+          - telnet
+        state: present
+      when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "16") or (ansible_distribution == "Debian" and ansible_distribution_major_version == "9")
+
+
+    
+
+      
