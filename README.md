@@ -1,6 +1,8 @@
 #               AWX_project
 * In this Anible AWX project we will have one inctance on any cloud provider services. 
 * AWX tower will hosts, Linux distributions and Windows instances. 
+
+
 ************** In my case all my instances are on AWS *******************
 
 - This repository inscludes different kind of playbooks -
