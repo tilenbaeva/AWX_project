@@ -5,6 +5,6 @@
     become_method: sudo
     tasks:
       - name: download the link
-      command: "wget https://wordpress.org/latest.tar.gz)"
+      command: "wget https://wordpress.org/latest.tar.gz"
       - name: unzip the file
       command: "gunzip wordpress-5.1.1.tar.gz /tmp)"
