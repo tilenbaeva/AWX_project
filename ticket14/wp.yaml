@@ -12,5 +12,5 @@
         unarchive:
           src: /tmp/wordpress-5.1.1.tar.gz
           #format: gzip
-          dest: /tmp/wp
+          dest: /tmp/
           remote_src: True
