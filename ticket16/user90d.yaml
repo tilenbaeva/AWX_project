@@ -1,9 +1,9 @@
 ---
 - hosts: all
 - name: unziping wordpress 
-    become: yes
-    become_method: sudo
+  become: yes
+  become_method: sudo
     name:
-        command: lastlog -b 90 | tail -n+2
-    - debug:
-        msg: "List of users that never logged in {{}}"
+    command: lastlog -b 90 | tail -n+2
+  - debug:
+      msg: "List of users that never logged in {{}}"
