@@ -1,0 +1,29 @@
+--- #This playbook  stops LAMP services on CentOS7
+- hosts: all  
+  become: yes
+  become_method: sudo 
+  #connection: ssh
+  tasks:
+
+    - name: Stop httpd (apache web )  server
+      when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+      service:
+        name: httpd
+        state: stopped
+        enabled: no
+
+
+    - name: Stop mysql server
+      when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+      service:
+        name: mariadb
+        state: stopped
+        enabled: no
+
+
+    - name: Stop the server
+      when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+      service:
+        name: httpd
+        state: stopped
+        enabled: no

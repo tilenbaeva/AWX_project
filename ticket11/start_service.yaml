@@ -1,4 +1,4 @@
---- #This playbook installs LAMP on CentOS7 and start service
+--- #This playbook installs LAMP on CentOS7 and start services
 - hosts: all  
   become: yes
   become_method: sudo 
