@@ -4,9 +4,11 @@
     become: yes
     become_method: sudo
     tasks:
-      - name: install wget
-        command: "yum install wget"
-      - name: download the link
-        command: "wget https://wordpress.org/latest.tar.gz)"
+      - name: install wp from e-link
+        get_url: 
+          url: https://wordpress.org/latest.tar.gz)
+          dest: /tmp
       - name: unzip the file
-        command: "gunzip wordpress-5.1.1.tar.gz /tmp)" 
+        unarchive:
+          src: /tmp/wordpress-5.1.1.tar.gz
+          dest: /tmp
