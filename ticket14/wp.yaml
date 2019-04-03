@@ -10,7 +10,7 @@
           dest: /tmp
       - name: unzip the file
         unarchive:
-          path: /tmp/wordpress-5.1.1.tar.gz
+          src: /tmp/wordpress-5.1.1.tar.gz
           #format: gzip
           dest: /tmp/wp
           remote_src: True
