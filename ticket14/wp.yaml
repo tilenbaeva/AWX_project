@@ -4,6 +4,8 @@
     become: yes
     become_method: sudo
     tasks:
+      - name: install wget
+        command: "yum install wget"
       - name: download the link
         command: "wget https://wordpress.org/latest.tar.gz)"
       - name: unzip the file
