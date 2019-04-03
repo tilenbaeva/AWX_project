@@ -1,0 +1,23 @@
+--- # Name: creates user with ssh key and gets it's ssh key to authorized keys of another systems
+- hosts: all
+  become: yes
+  become_method: sudo
+  #connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Add User with ssh-key
+      user:
+        name: bob
+        comment: "this user has ssh"
+        shell: /bin/csh
+        generate_ssh_key: yes
+        state: present
+
+    - name: Gets and copy ssh key to remote hosts
+      copy: 
+        src: /home/bob/.ssh/id_rsa.pub
+        #content: all
+        dest: /root/.ssh/authorized_key
+        follow: yes
+        remote_src: yes 
+        
