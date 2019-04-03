@@ -1,6 +1,5 @@
----
+--- #name: unziping wordpress 
 - hosts: all
-- name: unziping wordpress 
   become: yes
   become_method: sudo
   tasks:
