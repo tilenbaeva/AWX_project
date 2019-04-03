@@ -6,11 +6,12 @@
     tasks:
       - name: install wp from e-link
         get_url: 
-          url: https://wordpress.org/latest.tar.gz)
+          url: "{{ url_input }}"
+          #url: https://wordpress.org/latest.tar.gz)
           dest: /tmp
       - name: unzip the file
         unarchive:
-          src: /tmp/wordpress-5.1.1.tar.gz
+          src: /tmp/wordpress*
           #format: gzip
           dest: /tmp/
           remote_src: True
