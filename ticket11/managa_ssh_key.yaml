@@ -1,0 +1,15 @@
+# Please specify the following variables when prompted while launching the template   
+# user: user name on a remote system to which authorized keys you want to  copy the given key
+# state: present | absent
+# key: public key
+---
+- name: add or removes an SSH authorized key
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks: 
+    - name: add or removes an SSH authorized key
+      authorized_key:
+        user: "{{user}}"
+        state: "{{state}}"
+        key: "{{key}}"

@@ -1,0 +1,20 @@
+# Please specify the following variables when prompted while launching the template   
+# source_folder: search for the files inside this folder, absolute path
+# dest_folder: destination folder for the archive to be saved
+# days: number of days
+---
+- name: create a compressed archive of files in a specific folder that are older than the given number of days and save it inside a given folder
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: find files older than given days
+      find:
+        paths: "{{source_folder}}"
+        age: "{{days}}"
+        recurse: yes
+      register: found
+    - name: create a compressed archive of files found above
+      archive:
+        path: "{{found.files|map(attribute='path')|list}}"
+        format: gz

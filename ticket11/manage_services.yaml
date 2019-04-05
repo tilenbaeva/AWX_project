@@ -1,0 +1,13 @@
+# Please specify the following variables when prompted while launching the template   
+# service: service name
+# state: reloaded | restarted | started | stopped
+---
+- name: Manage the user specicfied service
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks: 
+    - name: set the state of the service
+      systemd:
+        name: "{{service}}"
+        state: "{{state}}"
