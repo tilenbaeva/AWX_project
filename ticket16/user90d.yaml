@@ -1,9 +1,5 @@
---- #name: unziping wordpress 
-- hosts: all
-  become: yes
-  become_method: sudo
+---
+- name: searche for users that are not active for 90 days and disables them, backup of their home director
+  hosts: all
   tasks:
-    - name:
-      command: lastlog -b 90 | tail -n+2
-    - debug:
-        msg: "List of users that never logged in {{}}"
+    - shell: lastlog -b 90 -u 1000- | awk '! /Never logged in/ {if (NR!=1) {print $1}}' | while read user; do chage -E0 $user; tar -czf /home/$user.tar.gz /home/$user; done
