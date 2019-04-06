@@ -1,4 +1,4 @@
----
+--- #url=http://wordpress.org/wordpress-{{ wp_version }}.tar.gz dest=/var/www/wordpress-{{ wp_version }}.tar.gz
   - name: unziping wordpress 
     hosts: all
     become: yes
@@ -11,7 +11,7 @@
           dest: /tmp
       - name: unzip the file
         unarchive:
-          src: /tmp/wordpress*
+          src: /tmp/wordpress-5.1.1.tar.gz
           #format: gzip
           dest: /tmp/
           remote_src: True
